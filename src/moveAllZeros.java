@@ -19,6 +19,7 @@ public class moveAllZeros {
 	        nums[insertPos++] = 0;
 	    }
 	}
+//自己一开始的想法
 /*public static void moveZeroes(int[] nums) {
 	for(int i =0;i<nums.length-1;i++){
 		int j = i+1;

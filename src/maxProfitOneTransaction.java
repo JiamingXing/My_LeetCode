@@ -12,10 +12,13 @@ public class maxProfitOneTransaction {
 		int max_right = 0;
 		int max_mid = 0;
 		int max = 0;
-		if(prices.length/2 ==0){
+		if(prices.length%2 ==0){
 			midpoint = prices.length/2 -1;
 		}else{
 			midpoint = prices.length/2;
+		}
+		if(midpoint<1){
+			
 		}
 		for(int i=0;i<midpoint;i++){
 			int j = prices.length-1;

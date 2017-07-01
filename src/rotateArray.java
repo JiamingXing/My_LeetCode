@@ -1,4 +1,13 @@
 import java.util.Arrays;
+//还原rotate array： 三步翻转法 O(n) O(1)的额外空间 reverse
+//[4 5 1 2 3]
+//[4 5 1 2 3] -> [5 4 1 2 3] -> [5 4 3 2 1] -> [1 2 3 4 5]
+/*for(int i = 0, j = n - 1; i < j; i++, j++){
+	t = A[i];
+	A[i] = A[j];
+	A[j] = t;
+}
+*/
 
 public class rotateArray {
 	public static void main(String[] args) {
@@ -7,16 +16,13 @@ public class rotateArray {
 		System.out.println(Arrays.toString(nums));
 		
 	}
-	
-	
-	
 	public static void rotate(int[] nums, int k) {
 	    k %= nums.length;
 	    reverse(nums, 0, nums.length - 1);
 	    reverse(nums, 0, k - 1);
 	    reverse(nums, k, nums.length - 1);
 	}
-	// rotate函数中药调用reverse函数 reverse函数要写static吗？？
+	// rotate函数中要调用reverse函数 reverse函数要写static吗？？
 
 	public static void reverse(int[] nums, int start, int end) {
 	    while (start < end) {
