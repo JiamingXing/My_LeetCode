@@ -8,13 +8,18 @@ import java.util.Comparator;
 //我如果改写Comparator 可以自己定义排序规则
 public class LargestNumber {
 	public String largestNumber(int[] nums) {
+		if (nums == null || nums.length == 0) {
+			return "";
+		}
 		StringBuilder sb = new StringBuilder();
 		String[] num = new String[nums.length];
 		for (int i = 0; i < num.length; i++) {
 			num[i] = nums[i]+"";
 		}
 		//Comparator 是一个interface 我这里的用法是什么样的？
-		Comparator<String> comp = new Comparator<>() {
+		//这样写不行吗？
+//		Comparator<String> comp = new Comparator<>() {
+		Comparator<String> comp = new Comparator<String>() {
 			@Override
 			public int compare(String str1, String str2) {
 				String s1 = str1 + str2;
