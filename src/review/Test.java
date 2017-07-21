@@ -2,6 +2,11 @@ package review;
 
 public class Test {
 	public static void main(String[] args) {
-		System.out.println(2000000000 % 3);
+		boolean[][] dp = new boolean[2][2];
+		if (dp[1][1]) {
+			System.out.println(11);
+		} else {
+			System.out.println(22);
+		}
 	}
 }

@@ -1,4 +1,8 @@
 package review;
+
+//import java.util.HashMap;
+//import java.util.Map;
+
 //核心思路是转换成subset sum的问题 但是对于subset sum的问题自己好像也没什么思路
 //(sum + target) / 2 = positive part -> subset sum problem
 public class TargetSum {
@@ -11,6 +15,14 @@ public class TargetSum {
 			return 0;
 		}
 		return subsetSum(nums, (sum + S) / 2);
+//		int target = (sum + S) / 2;
+//		Map<Integer, Integer> map = new HashMap<>();
+//		map.put(0, 1);
+//		for (int i = 0; i < nums.length; i++) {
+//			for (int j = target; j >= nums[i]; j--) {
+//				map.put(j-nums[i], map.getOrDefault(j-nums[i], 0)+1);
+//			}
+//		}
 	}
 	private int subsetSum(int[] nums, int target) {
 		int[] dp = new int[target + 1];

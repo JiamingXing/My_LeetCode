@@ -2,9 +2,8 @@ package array;
 
 public class Test {
 	public static void main(String[] args) {
-		PartitionArray s = new PartitionArray();
-		int[] nums = new int[]{6,4};
-		s.partitionArray(nums, 4);
-		System.out.println(s.partitionArray(nums, 4));
+		MaximumSubarrayIII s = new MaximumSubarrayIII();
+		int[] nums = new int[]{-1, -2, -3, -100, -1, -50};
+		System.out.println(s.maxSubArray(nums, 2));
 	}
 }

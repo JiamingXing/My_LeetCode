@@ -5,6 +5,7 @@ public class BestTimetoBuyandSellStockIII {
 		if (prices == null || prices.length == 0) {
 			return 0;
 		}
+		//先创建差值数组 转换为maximum subarray为问题
 		int[] difs = new int[prices.length - 1];
 		for (int i = 0; i < prices.length - 1; i++) {
 			difs[i] = prices[i+1] - prices[i];
