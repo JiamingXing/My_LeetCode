@@ -4,6 +4,7 @@ import java.util.Arrays;
 //需要好好反思一下这道题 因为里面有一些操作你没见到过
 //关键是这种medium的题 你要先形成思路 然后才能写出来！ 
 //学习这种思路怎么写出来的
+//这个就是next permutation的思路 只不过要注意数据类型
 public class NextGreaterIII {
 	public int nextGreaterElement(int n) {
 		//分离int的每一位 不需要去除再取商什么的 转换成char array

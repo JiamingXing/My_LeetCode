@@ -2,8 +2,11 @@ package array;
 
 public class Test {
 	public static void main(String[] args) {
-		MaximumSubarrayIII s = new MaximumSubarrayIII();
-		int[] nums = new int[]{-1, -2, -3, -100, -1, -50};
-		System.out.println(s.maxSubArray(nums, 2));
+		NextPermutation s = new NextPermutation();
+		int[] nums = new int[]{2,3,1};
+		s.nextPermutation(nums);
+		for (int n : nums) {
+			System.out.println(n);
+		}
 	}
 }
