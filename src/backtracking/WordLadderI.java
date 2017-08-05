@@ -32,6 +32,9 @@ public class WordLadderI {
 				for (int j = 0; j < cur.length(); j++) {
 					char[] chs = cur.toCharArray();
 					for (char c = 'a'; c <= 'z'; c++) {
+						if (chs[j] == c) {
+							continue;
+						}
 						chs[j] = c;
 						String target = String.valueOf(chs);
 						if (target.equals(endWord)) {
