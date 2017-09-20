@@ -5,6 +5,7 @@ public class UniqueSubstringsinWraparoundString {
 		if (p == null || p.length() == 0) {
             return 0;
         }
+		//值需要记录以当前字符结尾的最长substring
 		int[] ch = new int[26];
 		int curMax = 0;
 		for (int i = 0; i < p.length(); i++) {
@@ -32,7 +33,7 @@ public class UniqueSubstringsinWraparoundString {
 		if (p == null || p.length() == 0) {
             return 0;
         }
-		//state: dp[i] 包含第i位字符的substring方案个数
+		//state: dp[i] 以第i位字符结尾的substring方案个数
 		//怎么保证计算的所有case都是unique的？
 		int[] dp = new int[p.length()];
 		int[] cha = new int[26];

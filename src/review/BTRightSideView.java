@@ -1,11 +1,9 @@
 package review;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
 
+//DFS
 public class BTRightSideView {
 	public List<Integer> rightSideView(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
@@ -25,31 +23,31 @@ public class BTRightSideView {
 }
 
 /*
-//BFS实在是太慢了
+//BFS level-order traversal
 public class BTRightSideView {
 	public List<Integer> rightSideView(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
-		if (root == null) {
-			return res;
-		}
-		Stack<TreeNode> stack = new Stack<>();
-		Queue<TreeNode> Q = new LinkedList<>();
-		Q.add(root);
-		while(!Q.isEmpty()) {
-			int size = Q.size();
-			for (int i = 0; i < size; i++) {
-				TreeNode node = Q.poll();
-				stack.push(node);
-				if (node.left != null) {
-					Q.add(node.left);
-				}
-				if (node.right != null) {
-					Q.add(node.right);
-				}
-			}
-			res.add(stack.peek().val);
-		}
-		return res;
+        if (root == null) {
+            return res;
+        }
+        Queue<TreeNode> Q = new LinkedList<>();
+        Q.add(root);
+        while (!Q.isEmpty()) {
+            int size = Q.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode cur = Q.poll();
+                if (i == 0) {
+                    res.add(cur.val);
+                }
+                if (cur.right != null) {
+                    Q.add(cur.right);
+                }
+                if (cur.left != null) {
+                    Q.add(cur.left);
+                }
+            }
+        }
+        return res;
 	}
 }
 */

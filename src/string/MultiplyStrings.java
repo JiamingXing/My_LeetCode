@@ -2,19 +2,23 @@ package string;
 //如何规避溢出
 public class MultiplyStrings {
 	public String multiply(String num1, String num2) {
-		int mult1 = Integer.parseInt(num1);
-		int tag = 0;
-		int res = 0;
-		int firstNoneZero = -1;
-		for (int i = num2.length()-1; i >= 0; i--) {
-			if (firstNoneZero != 1 && num2.charAt(i) == '0') {
-				tag ++;
-			}
-			firstNoneZero = 1;
-			res += mult1 * Character.getNumericValue(num2.charAt(i)) * Math.pow(10, tag);
-			tag++;
-		}
-		return "" + res;
+		int m = num1.length(), n = num2.length();
+	    int[] pos = new int[m + n];
+	   //第[i,j]对应的[i+j, i+j+1]
+	    for(int i = m - 1; i >= 0; i--) {
+	        for(int j = n - 1; j >= 0; j--) {
+	            int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0'); 
+	            int p1 = i + j, p2 = i + j + 1;
+	            int sum = mul + pos[p2];
+
+	            pos[p1] += sum / 10;
+	            pos[p2] = (sum) % 10;
+	        }
+	    }  
+	    
+	    StringBuilder sb = new StringBuilder();
+	    for(int p : pos) if(!(sb.length() == 0 && p == 0)) sb.append(p);
+	    return sb.length() == 0 ? "0" : sb.toString();
 	}
 
 }

@@ -1,5 +1,5 @@
 package review;
-
+//其实是贪心算法
 public class WiggleSubsequence {
 	public int wiggleMaxLength(int[] nums) {
 		if (nums.length < 2) {

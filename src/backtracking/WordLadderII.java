@@ -1,9 +1,103 @@
 package backtracking;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+
 public class WordLadderII {
 	public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
-		
+		Set<String> dict = new HashSet<>(wordList);
+		List<List<String>> res = new ArrayList<>();
+		List<String> path = new ArrayList<>();
+		Map<String, List<String>> neighbors = new HashMap<>();
+		Map<String, Integer> distance = new HashMap<>();
+		dict.add(beginWord);
+		//BFS 用map生成图
+		bfs(beginWord, endWord, dict, neighbors, distance);
+		//DFS 得到所有最短路径
+		dfs(beginWord, endWord, dict, neighbors, distance, res, path);
+		return res;
+	}
+	private void bfs(String start, String end, Set<String> dict, 
+			Map<String, List<String>> neighbors, Map<String, Integer> distance) {
+		for (String word : dict) {
+			neighbors.put(word, new ArrayList<>());
+		}
+		Queue<String> Q = new LinkedList<>();
+		Q.offer(start);
+		distance.put(start, 0);
+		while (!Q.isEmpty()) {
+			int size = Q.size();
+			boolean found = false;
+			for (int i = 0; i < size; i++) {
+				String cur = Q.poll();
+				int curDistance = distance.get(cur);
+				List<String> curNeighbor = getNextWord(cur, dict);
+				for (String neighbor : curNeighbor) {
+					neighbors.get(cur).add(neighbor);
+					//check if visited with distance
+					if (!distance.containsKey(neighbor)) {
+						distance.put(neighbor, curDistance+1);
+						if (neighbor.equals(end)) {
+							found = true;
+						} else {
+							Q.offer(neighbor);
+						}
+					}
+					if (found) {
+						break;
+					}
+				}
+			}
+		}
+	}
+	private List<String> getNextWord(String cur, Set<String> dict) {
+		List<String> res = new ArrayList<>();
+		for (int i = 0; i < cur.length(); i++) {
+			for (char c = 'a'; c < 'z'; c++) {
+				if (cur.charAt(i) == c) {
+					continue;
+				}
+				String next = replace(cur, c, i);
+				if (dict.contains(next)) {
+					res.add(next);
+				}
+			}
+		}
+		return res;
+	}
+	private String replace(String cur, char c, int index) {
+		char[] ch = cur.toCharArray();
+		ch[index] = c;
+		return String.valueOf(ch);
+	}
+	private void dfs(String start, String end, Set<String> dict, 
+			Map<String, List<String>> neighbors, Map<String, Integer> distance,
+			List<List<String>> res, List<String> path) {
+		path.add(start);
+		if (start.equals(end)) {
+			res.add(new ArrayList<>(path));
+			//这个地方加了一个return提前return就会出事情，之前也有一道题犯了这样的错误！
+			//应该在后面remove就可以了
+			//return;
+		} else {
+			for (String next : neighbors.get(start)) {
+				//neighbor中可能包含了访问过的点
+				//没访问过的点的distance必然是cur的distance+1
+				if (distance.get(next) == distance.get(start) + 1) {
+					dfs(next, end, dict, neighbors, distance, res, path);
+//					一开始把remove的语句放在这里 对递归的理解还是不够
+//					path.remove(path.size() - 1);
+				}
+			}
+		}
+		//DFS当start=end的时候回开始remove path的最上层元素
+		path.remove(path.size() - 1);
 	}
 }
 

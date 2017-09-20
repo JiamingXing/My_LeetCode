@@ -16,6 +16,7 @@ public class StringToInteger {
 		while (index < str.length() && str.charAt(index) == ' ') {
 			index ++;
 		}
+		//要先判断符号 如果正负的问题
 		if (str.charAt(index) == '+' || str.charAt(index) == '-') {
 			sign = str.charAt(index) == '+' ? 1 : -1;
 		}

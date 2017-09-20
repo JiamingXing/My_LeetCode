@@ -21,7 +21,7 @@ public class GroupAnagrams {
 			}
 			map.get(String.valueOf(temp)).add(s);
 		}
-		//从来没用过这样的写法 所以很陌生 而且不是自己的思路所以没有总结复习的话 根本先不起来
+		//从来没用过这样的写法 所以很陌生 而且不是自己的思路所以没有总结复习的话 根本想不起来
 		//map.values() 返回的是一个collection collection是java中一个大的interface
 		//想一想为什么可以这样写，把一个collection作为Arraylist的内容，arraylist实现了collection这个接口
 		return new ArrayList<>(map.values());

@@ -42,3 +42,27 @@ public class combinationSumIV {
         return dp[target];
 	}
 }
+
+//背包型动态规划 循环的顺序不是固定的有的时候target放在外层，有的时候遍历数组放在外层
+/*
+public class Solution {
+    public int combinationSum4(int[] nums, int target) {
+        int[] dp = new int[target + 1];
+        dp[0] = 1;
+        // for (int i = 1; i <= target; i++) {
+        // 	for (int j = 0; j < nums.length; j++) {
+        // 		if (nums[j] > i) {
+        // 			continue;
+        // 		}
+        // 		dp[i] += dp[i-nums[j]];
+        // 	}
+        // }
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = nums[i]; j <= target; j++) {
+                dp[j] += dp[j-nums[i]];
+            }
+        }
+        return dp[target];
+    }
+}
+*/

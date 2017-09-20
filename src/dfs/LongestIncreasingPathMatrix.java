@@ -3,11 +3,11 @@ package dfs;
 public class LongestIncreasingPathMatrix {
 	public static final int[][] dirs = {{0,1}, {0,-1}, {1,0}, {-1,0}};
 	public int longestIncreasingPath(int[][] matrix) {
-		int m = matrix.length;
-		int n = matrix[0].length;
-		if (matrix == null || m == 0) {
+		if (matrix == null || matrix.length == 0) {
 			return 0;
 		}
+		int m = matrix.length;
+		int n = matrix[0].length;
 		//记录从(i,j)这个位置出发最长的长度
 		int[][] count = new int[m][n];
 		int max = 1;

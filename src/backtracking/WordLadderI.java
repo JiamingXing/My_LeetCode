@@ -9,6 +9,7 @@ import java.util.Queue;
 //这道题的本质可以看成graph 
 //这种题就是非常典型的BFS
 //类似的如果碰到这种单词变换的题 给你一定的单词变换规则 很可能是BFS
+//超时 必须要函数化
 public class WordLadderI {
 	public int ladderLength(String beginWord, String endWord, List<String> wordList) {
 		if (!wordList.contains(endWord)) {
@@ -25,7 +26,6 @@ public class WordLadderI {
 		int len = 1;
 		while (!Q.isEmpty()) {
 			len ++;
-			//我需要这层循环吗？
 			int size = Q.size();
 			for (int i = 0; i < size; i++) {
 				String cur = Q.poll();

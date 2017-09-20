@@ -1,5 +1,7 @@
 package review;
 //这道题值得思考
+//因为我当前的结果应该是和下两层的children的关系有关
+//能不能找到left.left 和 right.right的关系
 public class SymmetricTree {
 	public boolean isSymmetric(TreeNode root) {
 		if (root == null) {

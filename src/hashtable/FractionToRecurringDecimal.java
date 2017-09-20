@@ -10,7 +10,8 @@ public class FractionToRecurringDecimal {
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append((numerator > 0) ^ (denominator > 0) ? "-" : "");
-		//这里为什么要把int数据类型转换成long？ 
+		//这里为什么要把int数据类型转换成long？
+		//为了handle overflow?
 		long num = Math.abs((long)numerator);
 		long den = Math.abs((long)denominator);
 		

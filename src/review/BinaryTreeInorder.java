@@ -22,7 +22,7 @@ public class BinaryTreeInorder {
 
 //non-recursive
 //想想这个思路怎么得到的 这个思路还是挺巧妙的
-//利用cur = cur.right得到inorder的顺序还是听不容易想到的
+//利用cur = cur.right得到in-order的顺序还是挺不容易想到的
 /*
 public class BinaryTreeInorder {
 	public List<Integer> inorderTraversal(TreeNode root) {

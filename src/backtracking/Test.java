@@ -1,13 +1,19 @@
 package backtracking;
 
 public class Test {
+	int a;
+	public Test(int a) {
+		this.a = a;
+	}
+	public void addOne() {
+		a ++;
+		System.out.println(a);
+	}
 	public static void main(String[] args) {
-		RestoreIP p = new RestoreIP();
-
-		String s = "25525511135";
-		System.out.println(p.restoreIpAddresses(s));
-//		String s = "aab";
-//		System.out.println(s.substring(2, 3));
+		int a = 1;
+		Test t = new Test(a);
+		t.addOne();
+		System.out.println(a);
 	}
 
 }

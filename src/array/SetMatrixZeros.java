@@ -2,6 +2,7 @@ package array;
 
 public class SetMatrixZeros {
 	public void setZeroes(int[][] matrix) {
+		//如果没有这个label来记录第一列会出什么问题？
 		int label = 1;
 		for(int i = 0; i< matrix.length; i ++){
 			//用第一列来记录

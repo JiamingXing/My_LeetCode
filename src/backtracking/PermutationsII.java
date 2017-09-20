@@ -29,5 +29,34 @@ public class PermutationsII {
 			temp.remove(temp.size()-1);
 		}
 	}
-
 }
+
+//可以AC但是很慢很慢
+/*
+public class Solution {
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        Arrays.sort(nums);
+		HashSet<List<Integer>> set = new HashSet<>();
+		List<Integer> temp = new ArrayList<>();
+		helper(set, temp, nums, new boolean[nums.length]);
+		List<List<Integer>> res = new ArrayList<>(set);
+        return res;
+    }
+    private void helper(HashSet<List<Integer>> set, List<Integer> temp, int[] nums, boolean[] used) {
+		if (temp.size() == nums.length) {
+			set.add(new ArrayList<>(temp));
+			return;
+		}
+		for (int i = 0; i < nums.length; i++) {
+			if (used[i]) {
+				continue;
+			}
+			used[i] = true;
+			temp.add(nums[i]);
+			helper(set, temp, nums, used);
+			used[i] = false;
+			temp.remove(temp.size()-1);
+		}
+	}
+}
+*/

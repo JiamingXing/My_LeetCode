@@ -41,6 +41,49 @@ public class LongestPalindromicSubstring {
 		return res;
 	}
 }
+
+//review的时候写的 思路更清晰一些，分别从单个字符出发和两个字符出发做two pointer
+/*
+public class Solution {
+    public String longestPalindrome(String s) {
+        if (s == null) {
+            return null;
+        }
+        int max = Integer.MIN_VALUE;
+        String res = "";
+        int n = s.length();
+        if (n == 0 || n == 1) {
+            return s;
+        }
+        for (int i = 0; i < n; i ++) {
+            int[] odd = helper(s, i, i);
+            if (odd[1] - odd[0] - 1 > max) {
+                max = odd[1] - odd[0] -1;
+                res = s.substring(odd[0]+1, odd[1]);
+            }
+            int[] eve = helper(s, i, i+1);
+            if (eve[1] - eve[0] - 1 > max) {
+                max = eve[1] - eve[0] - 1;
+                res = s.substring(eve[0]+1, eve[1]);
+            }
+        }
+        return res;
+    }
+    private int[] helper(String s, int start, int end) {
+        int[] res = new int[2];
+        while (start >= 0 && end < s.length() && s.charAt(start) == s.charAt(end)) {
+            start --;
+            end ++;
+        }
+        res[0] = start;
+        res[1] = end;
+        return res;
+    }
+}
+*/
+
+
+//和上面的思路相同 不过使用了全局变量
 /*
 public class Solution {
 private int lo, maxLen;

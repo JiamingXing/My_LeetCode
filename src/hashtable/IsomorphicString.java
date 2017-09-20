@@ -1,6 +1,8 @@
 package hashtable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 //这个做法是错的 但是不知道最后一个没通过的case 错在哪里
 public class IsomorphicString {
@@ -24,6 +26,10 @@ public class IsomorphicString {
 			}else {
 				return false;
 			}
+		}
+		Map<String, List<String>> cmap = new HashMap<>();
+		if (!cmap.containsKey(s)) {
+			cmap.put(s, new ArrayList<>());
 		}
 		return true;
 	}

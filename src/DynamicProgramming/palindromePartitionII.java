@@ -1,7 +1,5 @@
 package DynamicProgramming;
 //这道题和decode ways一样都属于单序列DP类的问题 一起总结思考一下！！
-
-
 //state: f[i]:前i个字符需要多少次切割能变成回文
 //0 -> "" empty string 
 //1 -> "a" is a palindrome 0cut

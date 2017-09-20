@@ -29,6 +29,38 @@ public class PathSumII {
 	}
 }
 
+
+//复习的时候写的没有AC的版本
+/*
+class Solution {
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        helper(res, temp, root, sum);
+        return res;
+    }
+    private void helper(List<List<Integer>> res, List<Integer> temp, TreeNode root, int target) {
+        if (root == null) {
+            return;
+        }
+        temp.add(root.val);
+        if (root.left == null && root.right == null) {
+            if (root.val == target) {
+                res.add(new ArrayList<>(temp));
+                //错在这个地方这个地方千万不能加return 因为就算我成功加到res中
+                 //我还是要remove掉当前temp上的元素来做之后的循环
+                return;
+            }
+        }
+        helper(res, temp, root.left, target - root.val);
+        helper(res, temp, root.right, target - root.val);
+        temp.remove(temp.size() - 1);
+    }
+}
+*/
+
+
+
 //正确版本
 /*
 public class Solution {

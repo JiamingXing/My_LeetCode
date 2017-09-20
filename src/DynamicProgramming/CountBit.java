@@ -8,5 +8,4 @@ public class CountBit {
 		 }
 		 return result;
 	 }
-
 }

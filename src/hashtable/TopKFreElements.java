@@ -27,7 +27,7 @@ public class TopKFreElements {
 		for (int key : map.keySet()) {
 			int index = map.get(key);
 			if (list[index] == null) {
-				list[index] = new ArrayList();
+				list[index] = new ArrayList<>();
 			}
 			list[index].add(key);
 		}

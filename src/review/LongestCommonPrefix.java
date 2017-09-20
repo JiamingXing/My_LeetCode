@@ -35,7 +35,7 @@ public String longestCommonPrefix(String[] strs) {
         
         for (int i = 0; i < a.length; i ++){
             if (b.length > i && b[i] == a[i]){
-                result.append(b[i]);
+             
             }
             else {
                 return result.toString();

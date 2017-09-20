@@ -1,5 +1,6 @@
 package binarySearch;
 
+//这样写是错的 比如6就不对
 public class sqrt {
 	public int mySqrt(int x) {
 		if(x == 0 | x == 1){
@@ -22,6 +23,11 @@ public class sqrt {
 	}
 
 }
+
+
+//这道题如果follow up要求你返回的double的值 那我们就改变条件while (|end - start| < 10 ^ -6)
+
+//模板确实解决了这样的问题
 // 看完模板之后改的程序：
 //比较两者之间的区别
 /*

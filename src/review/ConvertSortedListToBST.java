@@ -17,9 +17,11 @@ public class ConvertSortedListToBST {
 			slow = slow.next;
 			fast = fast.next.next;
 		}
+		//设置一个prev断开变成新的linked list代码写起来就会简洁
+		//不需要考虑边界条件
 		firstHalf.next = null;
 		TreeNode root = new TreeNode(slow.val);
-		root.left = sortedListToBST(head == slow ? null : head);
+		root.left = sortedListToBST(head);
 		root.right = sortedListToBST(slow.next);
 		return root;
 	}

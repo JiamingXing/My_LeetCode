@@ -69,7 +69,7 @@ public class SortCharactersByFre {
 		for (char key : map.keySet()) {
 			int count = map.get(key);
 			if (temp[count] == null) {
-				temp[count] = new ArrayList();
+				temp[count] = new ArrayList<>();
 			}
 			temp[count].add(key);
 		}
@@ -88,6 +88,42 @@ public class SortCharactersByFre {
 
 }
 
+//复习的时候写的 Memory Limit Exceeded
+/*
+class Solution {
+    public String frequencySort(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        int max = 0;
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+            max = Math.max(max, map.get(c));
+        }
+        List<Character>[] bucket = new List[max + 1];
+        // List<Character>[] bucket = new List<Character>[max + 1];
+        for (char c : map.keySet()) {
+            int cur = map.get(c);
+            if (bucket[cur] == null) {
+                bucket[cur] = new ArrayList<>();
+            }
+            bucket[cur].add(c);
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = max; i >= 1; i --) {
+            if (bucket[i] != null) {
+                List<Character> cur = bucket[i];
+                for (char c : cur) {
+                    int repeatTime = i;
+                    while (repeatTime > 0) {
+                        sb.append(c);
+                        repeatTime --;
+                    }
+                }
+            }
+        }
+        return sb.toString();
+    }
+}
+*/
 
 
 

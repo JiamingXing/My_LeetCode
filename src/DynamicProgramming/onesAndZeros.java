@@ -30,3 +30,35 @@ public class onesAndZeros {
 	}
 
 }
+
+//关于循环顺序以及从小到大还是从大到小
+/*
+public class Solution {
+    public int findMaxForm(String[] strs, int m, int n) {
+        int[][] dp = new int[m+1][n+1];
+        for (String s : strs) {
+            int[] cur = count(s);
+            for (int i = 1; i <= m; i++) {
+                for (int j = 1; j <= n; j++) {
+                    if (cur[0] > i || cur[1] > j) {
+                        continue;
+                    }
+                    dp[i][j] = Math.max(dp[i][j], dp[i - cur[0]][j - cur[1]] + 1);
+                }
+            }
+        }
+        return dp[m][n];
+    }
+    private int[] count(String s) {
+        int[] res = new int[2];
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '0') {
+                res[0] ++;
+            } else {
+                res[1] ++;
+            }
+        }
+        return res;
+    }
+}
+*/

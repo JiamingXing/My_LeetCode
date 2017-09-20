@@ -16,11 +16,14 @@ public class LongestSubstringWithoutRepeatingCharacter {
 				right ++;
 			} else if (hash[s.charAt(right)] == 1) {
 				hash[s.charAt(right)] ++;
+				//找重复元素的的位置
 				while (hash[s.charAt(left)] < 2) {
 					hash[s.charAt(left)] --;
 					left ++;
 				}
 				hash[s.charAt(left)] --;
+				//current substring from left+1 to right
+				//length = right - left
 				max = Math.max(max, right-left);
 				left ++;
 				right ++;

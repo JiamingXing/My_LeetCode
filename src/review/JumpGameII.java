@@ -1,5 +1,5 @@
 package review;
-//用DP的方法时间复杂度为O(n^2)虽然在leetcode上会超时，但是必须掌握这样的分析思路
+//用DP的方法时间复杂度为O(n^2)虽然会TLE，但是必须掌握这样的分析思路
 public class JumpGameII {
 	public int jump(int[] nums) {
 		int[] dp = new int[nums.length];
@@ -22,22 +22,24 @@ public class JumpGameII {
 //version 2: Greedy
 public class Solution {
  public int jump(int[] A) {
-     if (A == null || A.length == 0) {
-         return -1;
-     }
-     int start = 0, end = 0, jumps = 0;
-     while (end < A.length - 1) {
-         jumps++;
-         int farthest = end;
-         for (int i = start; i <= end; i++) {
-             if (A[i] + i > farthest) {
-                 farthest = A[i] + i;
-             }
-         }
-         start = end + 1;
-         end = farthest;
-     }
-     return jumps;
+     int n = nums.length;
+        int res = 0;
+        //start对应我们还没能作为起始点的第一个点
+        int start = 0;
+        //end作为我每次能走到最远的点
+        int end = 0;
+        //循环的每次我都会考虑从还没作为起始点的点到上一次能走到最远的点
+        //把这些点作为起始点去考虑能走到最远是多少
+        while (end < n-1) {
+            res ++;
+            int curMax = end;
+            for (int i = start; i <= end; i++) {
+                curMax = Math.max(curMax, i + nums[i]);
+            }
+            start = end + 1;
+            end = curMax;
+        }
+        return res;
  }
 }
 */
